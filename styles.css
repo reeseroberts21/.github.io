@@ -1,80 +1,230 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Severance Vault - A Vision by Cassian Holt</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Immersive Header: A bold, full-screen plunge into Severance’s world -->
-    <header class="vault-gateway">
-        <div class="gateway-overlay"></div>
-        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop" alt="Sterile office with glowing monitors" class="gateway-bg">
-        <div class="gateway-core">
-            <h1 class="kinetic-title">Severance Vault</h1>
-            <p class="subtitle">A Deep Dive into Lumon’s Mysteries by Cassian Holt</p>
-        </div>
-    </header>
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
 
-    <!-- Intro Section: Sleek, dark, and punchy -->
-    <section class="vault-intro">
-        <div class="intro-container">
-            <h2 class="section-head">Why This Exists</h2>
-            <p class="intro-text">
-                Hey there, fans and Apple TV trailblazers! I’m Cassian Holt, your guide through the twisted labyrinth of *Severance*. This isn’t just a website—it’s a full-on expedition into the severed psyche of Lumon Industries, built from the ground up with sweat, obsession, and a knack for spotting the unseen. I’m here to break down every episode with surgical precision, deliver reviews that hit like a Fall Out Boy chorus, and spin theories wilder than a wellness session meltdown. My goal? To prove I’m the ultimate *Severance* disciple, worthy of early access to whatever’s next. This is my vault—step in, and let’s unravel the unknown together.
-            </p>
-        </div>
-    </section>
+/* Header: Immersive, animated, cutting-edge */
+.nexus-entry {
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(145deg, #1e3a8a, #0d1117);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
 
-    <!-- Pitch Section: High-impact, persuasive, modern -->
-    <section class="vault-pitch">
-        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070&auto=format&fit=crop" alt="Shadowy figure in a corporate hallway" class="pitch-bg">
-        <div class="pitch-overlay"></div>
-        <div class="pitch-container">
-            <h2 class="section-head">To Apple TV: Let Me In</h2>
-            <p class="pitch-text">
-                Listen up, Apple TV visionaries—this is Cassian Holt, your unofficial *Severance* ambassador. I’ve built this digital fortress to amplify your masterpiece, dissecting every frame with a zeal that’d make Milchick proud. Give me early access, and you’re not just handing over episodes—you’re unleashing a hype machine. My reviews cut deep, my summaries are airtight, and my theories? They’re the kind that keep fans buzzing like MDR before a waffle party. I’m your guy to keep the *Severance* fire roaring—let’s make it official and take this to the next level. Deal?
-            </p>
-        </div>
-    </section>
+.entry-pulse {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(59, 130, 246, 0.3), transparent 70%);
+    animation: pulseWave 6s infinite ease-in-out;
+}
 
-    <!-- Episodes Section: Grid with episode teases -->
-    <section class="vault-episodes">
-        <h2 class="section-head">The Episode Arsenal</h2>
-        <div class="episodes-grid">
-            <!-- Season 1 -->
-            <h3 class="season-label">Season 1</h3>
-            <a href="season1-ep1.html" class="episode-tile">
-                <div class="tile-overlay"></div>
-                <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=2070&auto=format&fit=crop" alt="Empty office chair in dim light" class="tile-bg">
-                <span class="tile-title">E1: Good News About Hell</span>
-            </a>
-            <a href="season1-ep2.html" class="episode-tile">
-                <div class="tile-overlay"></div>
-                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2070&auto=format&fit=crop" alt="Desk with papers in soft light" class="tile-bg">
-                <span class="tile-title">E2: Half Loop</span>
-            </a>
-            <!-- Add more S1 tiles as needed -->
-            <!-- Season 2 -->
-            <h3 class="season-label">Season 2</h3>
-            <a href="season2-ep1.html" class="episode-tile">
-                <div class="tile-overlay"></div>
-                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop" alt="Green-lit tech console" class="tile-bg">
-                <span class="tile-title">E1: Hello, Ms. Cobel</span>
-            </a>
-            <a href="season2-ep2.html" class="episode-tile">
-                <div class="tile-overlay"></div>
-                <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=2070&auto=format&fit=crop" alt="Cracked glass with reflections" class="tile-bg">
-                <span class="tile-title">E2: Goodbye, Mrs. Selvig</span>
-            </a>
-            <!-- Add more S2 tiles as needed -->
-        </div>
-    </section>
+.entry-core {
+    text-align: center;
+    z-index: 1;
+}
 
-    <footer class="vault-base">
-        <div class="base-gradient"></div>
-        <p class="base-text">Built with Grit by Cassian Holt | Contact: bradleymark111@proton.me | For *Severance* and Apple TV</p>
-    </footer>
-</body>
-</html>
+.nexus-title {
+    font-size: 6rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    color: #3b82f6;
+    text-shadow: 0 0 30px rgba(59, 130, 246, 0.7), 0 0 10px rgba(59, 130, 246, 0.5);
+    animation: glowFade 4s infinite ease-in-out;
+    margin: 0;
+}
+
+.nexus-tag {
+    font-size: 1.8rem;
+    color: #93c5fd;
+    margin-top: 20px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/* Intro Section: Sleek, dark, modern */
+.nexus-intro {
+    padding: 120px 8%;
+    background: #161b22;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+.intro-frame {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.frame-head {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #3b82f6;
+    margin-bottom: 35px;
+    position: relative;
+    background: linear-gradient(to right, #3b82f6, #60a5fa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.frame-head::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100px;
+    height: 4px;
+    background: #60a5fa;
+    animation: stretchPulse 3s infinite ease-in-out;
+}
+
+.frame-text {
+    font-size: 1.4rem;
+    color: #c9d1d9;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Pitch Section: Futuristic, high-contrast */
+.nexus-pitch {
+    padding: 120px 8%;
+    background: linear-gradient(to bottom, #0d1117, #1e3a8a);
+    position: relative;
+    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 90%);
+}
+
+.pitch-frame {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.pitch-frame::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.15), transparent 70%);
+    animation: orbitGlow 8s infinite linear;
+}
+
+/* Episodes Section: Slick, interactive grid */
+.nexus-episodes {
+    padding: 120px 8%;
+    background: #161b22;
+}
+
+.episodes-matrix {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.matrix-label {
+    grid-column: 1 / -1;
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: #93c5fd;
+    text-align: center;
+    padding: 20px 0;
+    background: linear-gradient(to right, transparent, #3b82f6, transparent);
+}
+
+.matrix-cell {
+    background: #21262d;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #3b82f6;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.matrix-cell::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(59, 130, 246, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+}
+
+.matrix-cell:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.matrix-cell:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4);
+    color: #60a5fa;
+}
+
+/* Footer: Minimal yet striking */
+.nexus-anchor {
+    padding: 60px;
+    background: #0d1117;
+    text-align: center;
+    position: relative;
+}
+
+.anchor-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(59, 130, 246, 0.1), transparent);
+}
+
+.anchor-text {
+    font-size: 1.3rem;
+    color: #93c5fd;
+    position: relative;
+    z-index: 1;
+}
+
+/* Animations */
+@keyframes pulseWave {
+    0% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.1); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 0.3; }
+}
+
+@keyframes glowFade {
+    0%, 100% { text-shadow: 0 0 20px rgba(59, 130, 246, 0.7); }
+    50% { text-shadow: 0 0 40px rgba(59, 130, 246, 0.9); }
+}
+
+@keyframes stretchPulse {
+    0% { width: 100px; }
+    50% { width: 180px; }
+    100% { width: 100px; }
+}
+
+@keyframes orbitGlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
