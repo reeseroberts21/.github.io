@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S1E4: The You You Are - Mark Bradley’s Blog</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #0a0e14;
+            color: #d1d8e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-width: 100%;
+            background: rgba(18, 23, 31, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            overflow-x: hidden;
+        }
+
+        .nav-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            font-size: 1.2rem;
+            color: #93c5fd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #60a5fa;
+            text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+        }
+
+        .episode-header {
+            position: relative;
+            height: 80vh;
+            background: linear-gradient(135deg, #1e40af, #0a0e14);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .header-wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(59, 130, 246, 0.25), transparent 70%);
+            animation: wavePulse 5s infinite ease-in-out;
+        }
+
+        .header-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .episode-title {
+            font-size: 5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            color: #3b82f6;
+            text-shadow: 0 0 25px rgba(59, 130, 246, 0.8), 0 0 10px rgba(59, 130, 246, 0.6);
+            animation: titleGlow 3s infinite ease-in-out;
+            margin: 0;
+        }
+
+        .episode-subtitle {
+            font-size: 1.8rem;
+            color: #93c5fd;
+            margin-top: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .episode-section {
+            padding: 120px 10%;
+            background: #12171f;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 95%);
+        }
+
+        .section-box {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .box-head {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 35px;
+            background: linear-gradient(to right, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            border-bottom: 3px solid #2ecc71; /* MDR Green */
+        }
+
+        .box-head::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 100px;
+            height: 5px;
+            background: #2ecc71; /* MDR Green */
+            animation: lineStretch 4s infinite ease-in-out;
+        }
+
+        .box-text {
+            font-size: 1.4rem;
+            color: #d1d8e0;
+            text-align: justify;
+        }
+
+        .theory-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .theory-item {
+            font-size: 1.4rem;
+            color: #d1d8e0;
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .theory-item::before {
+            content: '➤';
+            position: absolute;
+            left: 0;
+            color: #2ecc71; /* MDR Green */
+            font-size: 1.6rem;
+        }
+
+        .dive-footer {
+            padding: 80px;
+            background: #12171f;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(59, 130, 246, 0.15), transparent);
+        }
+
+        .footer-text {
+            font-size: 1.4rem;
+            color: #93c5fd;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes wavePulse {
+            0% { transform: scale(1); opacity: 0.25; }
+            50% { transform: scale(1.15); opacity: 0.4; }
+            100% { transform: scale(1); opacity: 0.25; }
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { text-shadow: 0 0 25px rgba(59, 130, 246, 0.8); }
+            50% { text-shadow: 0 0 45px rgba(59, 130, 246, 1); }
+        }
+
+        @keyframes lineStretch {
+            0% { width: 100px; }
+            50% { width: 200px; }
+            100% { width: 100px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <h2 class="nav-title">Severance Deep Dive</h2>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="#description" class="nav-link">Description</a>
+            <a href="#rating" class="nav-link">Rating</a>
+            <a href="#theories" class="nav-link">Theories</a>
+        </div>
+    </nav>
+
+    <header class="episode-header">
+        <div class="header-wave"></div>
+        <div class="header-content">
+            <h1 class="episode-title">S1E4: The You You Are</h1>
+            <p class="episode-subtitle">Aired: March 4, 2022 | Rambled by Mark Bradley</p>
+        </div>
+    </header>
+
+    <section class="episode-section" id="description">
+        <div class="section-box">
+            <h2 class="box-head">What Went Down</h2>
+            <p class="box-text">
+                This time, Helly’s outie sends back that brutal video saying “nope” to quitting, crushing her innie’s hopes. Mark’s outie goes to Ricken’s book reading, all awkward and weird, while inside, Mark and the team sneak into the wellness room to dodge work. Ms. Casey’s there again, and Helly flips out, smashing stuff—total chaos!
+            </p>
+        </div>
+    </section>
+
+    <section class="episode-section" id="rating">
+        <div class="section-box">
+            <h2 class="box-head">My Rating</h2>
+            <p class="box-text">
+                9 out of 10—this one’s intense, Helly’s meltdown is gold. It’s like Fall Out Boy’s “American Beauty/American Psycho”—raw, chaotic, and hits you right in the chest.
+            </p>
+        </div>
+    </section>
+
+    <section class="episode-section" id="theories">
+        <div class="section-box">
+            <h2 class="box-head">Theories Out the Wazoo</h2>
+            <ul class="theory-list">
+                <li class="theory-item">
+                    Helly’s outie video—dude, that’s cold! Why’s she so heartless? I’m thinking her outie’s either brainwashed by Lumon or she’s in too deep—like, maybe she’s a higher-up who volunteered her innie to test this crap. That “I’m happy” line feels forced—what if they’re forcing her to say it, like some creepy script to keep Helly trapped?
+                </li>
+                <li class="theory-item">
+                    Mark sneaking into the wellness room—okay, he’s breaking rules now, which is new. What if that’s a sign the severance is slipping? Like, his innie’s starting to act more like his outie, picking up that rebellious streak—could be why Helly’s rubbing off on him, cracking that perfect drone vibe Lumon wants!
+                </li>
+                <li class="theory-item">
+                    Ms. Casey’s back—man, she’s so off. I’m doubling down on the brainwashing—she’s too calm, too robotic. What if she’s a fully severed person, like no outie at all, just an innie programmed to run these sessions? That’d explain her weird vibe—maybe she’s Lumon’s first success story, and they’re testing her on the team!
+                </li>
+                <li class="theory-item">
+                    Helly smashing stuff—holy crap, that’s huge! She’s not just resisting, she’s breaking down—could be her innie’s fighting the severance harder than anyone else. What if she’s the key to undoing it? Like, her freakout’s a glitch they didn’t expect, and it’s gonna show Lumon this tech ain’t flawless!
+                </li>
+                <li class="theory-item">
+                    Ricken’s book reading outside—Mark’s all awkward, but why’s this book everywhere? I’m thinking it’s Lumon’s doing—Mrs. Selvig or someone’s planting it to mess with his head. Could be subliminal stuff in there, keeping his outie in line—or maybe it’s a test to see if his innie picks up on it somehow!
+                </li>
+                <li class="theory-item">
+                    The numbers—they’re still a mystery, but now I’m wondering if they’re tied to the wellness sessions. What if refining them triggers the sessions? Like, every milestone’s a signal to Lumon to mess with their heads more—could be why Ms. Casey’s always around after they hit one!
+                </li>
+                <li class="theory-item">
+                    Ms. Cobel as Mrs. Selvig—she’s at the reading too, right? I’m betting she’s orchestrating everything—Mark’s outie life, the book, all of it—to keep him distracted. What if she’s got a whole team watching all the outies, making sure nothing leaks through—super paranoid stuff!
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <footer class="dive-footer">
+        <div class="footer-glow"></div>
+        <p class="footer-text"><a href="index.html" class="nav-link">Back to Home</a> | Rambled by Mark Bradley | bradleymark111@proton.me | All About <em>Severance</em></p>
+    </footer>
+</body>
+</html>
