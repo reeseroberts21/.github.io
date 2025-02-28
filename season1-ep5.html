@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S1E5: The Grim Barbarity of Optics and Design - Mark Bradley’s Blog</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #0a0e14;
+            color: #d1d8e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-width: 100%;
+            background: rgba(18, 23, 31, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            overflow-x: hidden;
+        }
+
+        .nav-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            font-size: 1.2rem;
+            color: #93c5fd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #60a5fa;
+            text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+        }
+
+        .episode-header {
+            position: relative;
+            height: 80vh;
+            background: linear-gradient(135deg, #1e40af, #0a0e14);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .header-wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(59, 130, 246, 0.25), transparent 70%);
+            animation: wavePulse 5s infinite ease-in-out;
+        }
+
+        .header-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .episode-title {
+            font-size: 5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            color: #3b82f6;
+            text-shadow: 0 0 25px rgba(59, 130, 246, 0.8), 0 0 10px rgba(59, 130, 246, 0.6);
+            animation: titleGlow 3s infinite ease-in-out;
+            margin: 0;
+        }
+
+        .episode-subtitle {
+            font-size: 1.8rem;
+            color: #93c5fd;
+            margin-top: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .episode-section {
+            padding: 120px 10%;
+            background: #12171f;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 95%);
+        }
+
+        .section-box {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .box-head {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 35px;
+            background: linear-gradient(to right, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            border-bottom: 3px solid #2ecc71; /* MDR Green */
+        }
+
+        .box-head::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 100px;
+            height: 5px;
+            background: #2ecc71; /* MDR Green */
+            animation: lineStretch 4s infinite ease-in-out;
+        }
+
+        .box-text {
+            font-size: 1.4rem;
+            color: #d1d8e0;
+            text-align: justify;
+        }
+
+        .theory-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .theory-item {
+            font-size: 1.4rem;
+            color: #d1d8e0;
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .theory-item::before {
+            content: '➤';
+            position: absolute;
+            left: 0;
+            color: #2ecc71; /* MDR Green */
+            font-size: 1.6rem;
+        }
+
+        .dive-footer {
+            padding: 80px;
+            background: #12171f;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(59, 130, 246, 0.15), transparent);
+        }
+
+        .footer-text {
+            font-size: 1.4rem;
+            color: #93c5fd;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes wavePulse {
+            0% { transform: scale(1); opacity: 0.25; }
+            50% { transform: scale(1.15); opacity: 0.4; }
+            100% { transform: scale(1); opacity: 0.25; }
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { text-shadow: 0 0 25px rgba(59, 130, 246, 0.8); }
+            50% { text-shadow: 0 0 45px rgba(59, 130, 246, 1); }
+        }
+
+        @keyframes lineStretch {
+            0% { width: 100px; }
+            50% { width: 200px; }
+            100% { width: 100px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <h2 class="nav-title">Severance Deep Dive</h2>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="#description" class="nav-link">Description</a>
+            <a href="#rating" class="nav-link">Rating</a>
+            <a href="#theories" class="nav-link">Theories</a>
+        </div>
+    </nav>
+
+    <header class="episode-header">
+        <div class="header-wave"></div>
+        <div class="header-content">
+            <h1 class="episode-title">S1E5: The Grim Barbarity of Optics and Design</h1>
+            <p class="episode-subtitle">Aired: March 11, 2022 | Rambled by Mark Bradley</p>
+        </div>
+    </header>
+
+    <section class="episode-section" id="description">
+        <div class="section-box">
+            <h2 class="box-head">What Went Down</h2>
+            <p class="box-text">
+                Episode 5’s wild—Mark finds a creepy map in Petey’s old stuff, leading him and Helly to the O&D department, where they meet Burt and see goats, actual goats! Outside, Mark’s outie visits Petey’s grave, all emotional, while Mrs. Selvig’s still snooping. Inside, the team’s freaking out about the map, and Helly’s all in on exploring.
+            </p>
+        </div>
+    </section>
+
+    <section class="episode-section" id="rating">
+        <div class="section-box">
+            <h2 class="box-head">My Rating</h2>
+            <p class="box-text">
+                10 out of 10—this one’s a banger, goats and all! It’s like Panic! at the Disco’s “High Hopes”—big, bold, and takes it to the next level, no holding back.
+            </p>
+        </div>
+    </section>
+
+    <section class="episode-section" id="theories">
+        <div class="section-box">
+            <h2 class="box-head">Theories Out the Wazoo</h2>
+            <ul class="theory-list">
+                <li class="theory-item">
+                    That map Mark found—holy crap, it’s from Petey! What if Petey was onto something huge before he bailed? Like, maybe he mapped out Lumon’s secrets—could be the goats are part of it, and he left it for Mark to pick up where he left off. Maybe Petey’s not just gone, maybe he’s out there fighting Lumon still!
+                </li>
+                <li class="theory-item">
+                    Goats in O&D—okay, what the actual hell? I’m thinking they’re not just random—what if they’re test subjects for severance? Like, Lumon’s trying it on animals first, and those goats are severed too—could be why they’re so chill, wandering around like they don’t know what’s up. Maybe they’re refining goat memories or something!
+                </li>
+                <li class="theory-item">
+                    Burt in O&D—he’s nice, but creepy nice. What if O&D’s a cover for something bigger? Like, they’re not just making optics—could be they’re building the severance tech itself, and the goats are part of the process—maybe feeding them data or testing how it works on living things!
+                </li>
+                <li class="theory-item">
+                    Helly’s all about exploring now—man, she’s turning into the leader here. I’m sticking with her being a weak link in severance—what if her outie’s a plant to see if innies can rebel? Her going to O&D could be the first real crack—maybe she’s gonna figure out what Petey knew!
+                </li>
+                <li class="theory-item">
+                    Mark visiting Petey’s grave—dude’s emotional, but what if Petey’s not dead? Like, Lumon faked it to scare Mark’s outie straight—could be Petey’s hiding, and Mrs. Selvig’s there to make sure Mark doesn’t dig too deep. That’d be a twist, right?
+                </li>
+                <li class="theory-item">
+                    The numbers and O&D—alright, hear me out—what if MDR’s feeding data to O&D? Like, the numbers are raw stuff, and O&D turns it into something—maybe severance chips or mind backups! That green glow in MDR could be the pipeline—connecting the dots between the departments!
+                </li>
+                <li class="theory-item">
+                    Ms. Cobel snooping—still convinced she’s running the show outside. What if she’s got Petey’s old map too? Like, she knows Mark’s got it now and she’s waiting to see what he does—could be a trap to catch him breaking rules, proving the severance ain’t perfect!
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <footer class="dive-footer">
+        <div class="footer-glow"></div>
+        <p class="footer-text"><a href="index.html" class="nav-link">Back to Home</a> | Rambled by Mark Bradley | bradleymark111@proton.me | All About <em>Severance</em></p>
+    </footer>
+</body>
+</html>
