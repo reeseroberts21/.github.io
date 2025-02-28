@@ -15,7 +15,47 @@
             overflow-x: hidden;
         }
 
-        /* Header: Bold, animated, modern */
+        /* Navigation: Sleek, fixed, modern */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(18, 23, 31, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            font-size: 1.2rem;
+            color: #93c5fd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #60a5fa;
+            text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+        }
+
+        /* Header: Adjusted for nav overlap */
         .deep-dive-header {
             position: relative;
             height: 100vh;
@@ -24,6 +64,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            padding-top: 80px; /* Offset for fixed nav */
         }
 
         .header-wave {
@@ -207,6 +248,16 @@
     </style>
 </head>
 <body>
+    <!-- Navigation: Fixed top bar -->
+    <nav class="nav-bar">
+        <h2 class="nav-title">Severance Deep Dive</h2>
+        <div class="nav-links">
+            <a href="#intro" class="nav-link">About</a>
+            <a href="#episodes" class="nav-link">Episodes</a>
+            <a href="#footer" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
     <!-- Header: A sleek, animated plunge into Mark’s world -->
     <header class="deep-dive-header">
         <div class="header-wave"></div>
@@ -216,18 +267,18 @@
         </div>
     </header>
 
-    <!-- Intro Section: Mark talks FOREVER -->
-    <section class="dive-intro">
+    <!-- Intro Section: Mark talks FOREVER with proper italics -->
+    <section class="dive-intro" id="intro">
         <div class="intro-box">
             <h2 class="box-head">Hey, What’s This All About?</h2>
             <p class="box-text">
-                Alright, so here’s the deal—hey, I’m Mark Bradley, just your average dude who’s completely lost his mind over *Severance*, and I mean that in the best way possible, like I can’t stop thinking about it, talking about it, dreaming about it, you name it, it’s taken over my life. This show, man, it’s insane, right? Like, I sit down to watch it and I’m just sucked into this whole world of Lumon Industries, with all its creepy vibes and weird rules and severance stuff that makes my head spin, and I’m like, okay, I’ve got to do something about this, I’ve got to get all my thoughts out there because there’s just so much to unpack. So I built this blog, this giant sprawling thing, because I’ve got a million things to say about every single episode—like, seriously, I could go on for hours about just the first five minutes of the pilot, and don’t even get me started on the wellness sessions or the goats or whatever the hell those numbers mean, it’s all so wild. I’m not some fancy critic or anything, just a guy who loves this show way too much, probably more than is healthy, but whatever, here we are. I’ve been rewatching every episode, taking notes like a lunatic, scribbling down every detail I can catch, because there’s always something new—did you notice how the lighting changes when Mark’s innie switches to his outie? Or how Helly’s always got this look like she’s about to flip a table? I mean, come on, it’s genius, and I’m here for it, all of it, every single second. This blog’s my way of diving in deep, like super deep, into everything *Severance* throws at us—I’m talking episode breakdowns that go on forever, reviews where I ramble about how much I love Adam Scott’s confused face, and theories that are probably nuts but I swear they make sense if you squint, like maybe Lumon’s secretly cloning people or something, I don’t know, I’ve got a lot to say about that too. I’ve been hooked since day one, couldn’t peel my eyes away from the screen, and now I’m just this guy who can’t shut up about it, honestly it’s like Fall Out Boy’s “Sugar, We’re Goin Down” stuck in my head but it’s the whole show instead, swinging for the fences with every episode. Anyway, I’ve got so much to share—like, you wouldn’t believe how long I could talk about the MDR team’s dynamic, Dylan’s sarcasm, Irving’s weird devotion, Helly’s badass energy, it’s all gold, pure gold, and I’m not stopping anytime soon. I’ve watched every scene a dozen times, paused it to stare at the background, rewound to catch every line, because this show’s layered like nobody’s business, and I’m obsessed with peeling it apart. So yeah, this is my blog, my deep dive, my ramble-fest—stick around, because I’m not even close to done talking about *Severance*, not by a long shot, I’ve got pages and pages of thoughts, probably enough to fill a whole book if I wanted, but for now it’s all here, every word, every rant, every little thing I’ve noticed, because this show deserves it, you know? It’s not just TV, it’s a freaking experience, and I’m living in it 24/7, so let’s do this, let’s dig into every corner of Lumon together, because I’ve got a lot to say and I’m just getting started, trust me, this is gonna be a wild ride!
+                Alright, so here’s the deal—hey, I’m Mark Bradley, just your average dude who’s completely lost his mind over <em>Severance</em>, and I mean that in the best way possible, like I can’t stop thinking about it, talking about it, dreaming about it, you name it, it’s taken over my life. This show, man, it’s insane, right? Like, I sit down to watch it and I’m just sucked into this whole world of Lumon Industries, with all its creepy vibes and weird rules and severance stuff that makes my head spin, and I’m like, okay, I’ve got to do something about this, I’ve got to get all my thoughts out there because there’s just so much to unpack. So I built this blog, this giant sprawling thing, because I’ve got a million things to say about every single episode—like, seriously, I could go on for hours about just the first five minutes of the pilot, and don’t even get me started on the wellness sessions or the goats or whatever the hell those numbers mean, it’s all so wild. I’m not some fancy critic or anything, just a guy who loves this show way too much, probably more than is healthy, but whatever, here we are. I’ve been rewatching every episode, taking notes like a lunatic, scribbling down every detail I can catch, because there’s always something new—did you notice how the lighting changes when Mark’s innie switches to his outie? Or how Helly’s always got this look like she’s about to flip a table? I mean, come on, it’s genius, and I’m here for it, all of it, every single second. This blog’s my way of diving in deep, like super deep, into everything <em>Severance</em> throws at us—I’m talking episode breakdowns that go on forever, reviews where I ramble about how much I love Adam Scott’s confused face, and theories that are probably nuts but I swear they make sense if you squint, like maybe Lumon’s secretly cloning people or something, I don’t know, I’ve got a lot to say about that too. I’ve been hooked since day one, couldn’t peel my eyes away from the screen, and now I’m just this guy who can’t shut up about it, honestly it’s like Fall Out Boy’s “Sugar, We’re Goin Down” stuck in my head but it’s the whole show instead, swinging for the fences with every episode. Anyway, I’ve got so much to share—like, you wouldn’t believe how long I could talk about the MDR team’s dynamic, Dylan’s sarcasm, Irving’s weird devotion, Helly’s badass energy, it’s all gold, pure gold, and I’m not stopping anytime soon. I’ve watched every scene a dozen times, paused it to stare at the background, rewound to catch every line, because this show’s layered like nobody’s business, and I’m obsessed with peeling it apart. So yeah, this is my blog, my deep dive, my ramble-fest—stick around, because I’m not even close to done talking about <em>Severance</em>, not by a long shot, I’ve got pages and pages of thoughts, probably enough to fill a whole book if I wanted, but for now it’s all here, every word, every rant, every little thing I’ve noticed, because this show deserves it, you know? It’s not just TV, it’s a freaking experience, and I’m living in it 24/7, so let’s do this, let’s dig into every corner of Lumon together, because I’ve got a lot to say and I’m just getting started, trust me, this is gonna be a wild ride!
             </p>
         </div>
     </section>
 
     <!-- Episodes Section: A slick grid for Mark’s rants -->
-    <section class="dive-episodes">
+    <section class="dive-episodes" id="episodes">
         <h2 class="box-head">The Episode Rundown</h2>
         <div class="episodes-cluster">
             <h3 class="cluster-head">Season 1</h3>
@@ -254,9 +305,9 @@
         </div>
     </section>
 
-    <footer class="dive-footer">
+    <footer class="dive-footer" id="footer">
         <div class="footer-glow"></div>
-        <p class="footer-text">Rambled into Existence by Mark Bradley | bradleymark111@proton.me | All About *Severance*</p>
+        <p class="footer-text">Rambled into Existence by Mark Bradley | bradleymark111@proton.me | All About <em>Severance</em></p>
     </footer>
 </body>
 </html>
