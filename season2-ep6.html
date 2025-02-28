@@ -4,171 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S2E6: Attila - Mark Bradley’s Blog</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #0a0e14;
-            color: #d1d8e0;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="season2">
+    <nav class="nav-bar">
+        <h2 class="nav-title">Severance Deep Dive</h2>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="#description" class="nav-link">Description</a>
+            <a href="#rating" class="nav-link">Rating</a>
+            <a href="#theories" class="nav-link">Theories</a>
+        </div>
+    </nav>
 
-        .nav-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            max-width: 100%;
-            background: rgba(18, 23, 31, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 10px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            overflow-x: hidden;
-        }
+    <header class="episode-header">
+        <div class="header-wave"></div>
+        <div class="header-content">
+            <h1 class="episode-title">S2E6: Attila</h1>
+            <p class="episode-subtitle">Aired: February 21, 2025 | Rambled by Mark Bradley</p>
+        </div>
+    </header>
 
-        .nav-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #2ecc71; /* Swapped to Green */
-            margin: 0;
-        }
+    <section class="episode-section" id="description">
+        <div class="section-box">
+            <h2 class="box-head">What Went Down</h2>
+            <p class="box-text">
+                Episode 6’s intense—Mark’s innie and outie collide at “Attila,” a secret Lumon facility, where they face a brutal reintegration test. Helly leads MDR in a defiant push, while Reghabi’s motives get darker. Outside, Devon and Ricken uncover more of Petey’s files, and Helena’s control tightens with a chilling reveal.
+            </p>
+        </div>
+    </section>
 
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
+    <section class="episode-section" id="rating">
+        <div class="section-box">
+            <h2 class="box-head">My Rating</h2>
+            <p class="box-text">
+                10 out of 10—brutal, epic, pure <em>Severance</em> fire! It’s like Fall Out Boy’s “My Songs Know What You Did in the Dark”—dark, explosive, and leaves you reeling.
+            </p>
+        </div>
+    </section>
 
-        .nav-link {
-            font-size: 1.2rem;
-            color: #3b82f6; /* Swapped to Blue */
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+    <section class="episode-section" id="theories">
+        <div class="section-box">
+            <h2 class="box-head">Theories Out the Wazoo</h2>
+            <ul class="theory-list">
+                <li class="theory-item">
+                    Attila facility—holy crap, what’s this place? I’m thinking it’s Lumon’s ultimate lab—where they test severance to the breaking point! Like, Mark’s innie-outie clash there could be a final experiment—could be why it’s so brutal, they’re pushing him to snap or reintegrate completely! Maybe it’s where they built the chips, and that green MDR glow’s strongest here—control central!
+                </li>
+                <li class="theory-item">
+                    Mark’s clash—man, he’s breaking bad! What if Attila’s the endgame for reintegration? Like, Reghabi’s pushing him to merge, but it’s killing him—could be why Petey crashed, it’s a do-or-die test! Maybe Lumon’s watching to see if severance can hold or if they need a new tech—Mark’s the guinea pig who’s gonna show them!
+                </li>
+                <li class="theory-item">
+                    Helly’s defiance—dude, she’s unstoppable! What if she’s cracked Attila’s secrets? Like, she’s leading MDR to fight back—could be she found files or tech there, and she’s about to blow this wide open! That green glow might be her key—maybe it’s powering her innie now, keeping her rebellion strong!
+                </li>
+                <li class="theory-item">
+                    Reghabi’s darker—still don’t trust her! What if she runs Attila? Like, Lumon’s using her to test reintegration limits—could be Mark’s the bait, and she’s watching him die or survive! Maybe she’s got a new chip or wipe tech—Petey’s crash was just practice, and Mark’s next in line!
+                </li>
+                <li class="theory-item">
+                    Petey’s files—Devon and Ricken finding more—huge! What if they’ve got Attila’s blueprint? Like, Petey left proof of this place—could be why Mark’s outie’s freaking out, it’s waking him up! Maybe those files lead to Helena or the chips—total rebellion fuel!
+                </li>
+                <li class="theory-item">
+                    Helena’s reveal—chilling as hell! What if she’s severed at Attila? Like, her innie’s been there forever—could be why that green glow’s so strong, it’s her control hub! Maybe she’s testing Mark and Helly to see if severance holds—or if it’s time to upgrade with Attila’s tech!
+                </li>
+                <li class="theory-item">
+                    The numbers—are they dead? What if Attila killed MDR refining? Like, they’re at this facility because severance’s failing—could be that green glow’s gone, and Lumon’s testing a new system! Maybe Attila’s the new MDR, and they’re rebuilding from scratch there!
+                </li>
+            </ul>
+        </div>
+    </section>
 
-        .nav-link:hover {
-            color: #93c5fd; /* Adjusted to match new theme */
-            text-shadow: 0 0 10px rgba(147, 197, 253, 0.5);
-        }
-
-        .episode-header {
-            position: relative;
-            height: 80vh;
-            background: linear-gradient(135deg, #1e40af, #0a0e14);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            padding-top: 80px;
-        }
-
-        .header-wave {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(46, 204, 113, 0.25), transparent 70%); /* Swapped to Green */
-            animation: wavePulse 5s infinite ease-in-out;
-        }
-
-        .header-content {
-            text-align: center;
-            z-index: 1;
-        }
-
-        .episode-title {
-            font-size: 5rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 10px;
-            color: #2ecc71; /* Swapped to Green */
-            text-shadow: 0 0 25px rgba(46, 204, 113, 0.8), 0 0 10px rgba(46, 204, 113, 0.6);
-            animation: titleGlow 3s infinite ease-in-out;
-            margin: 0;
-        }
-
-        .episode-subtitle {
-            font-size: 1.8rem;
-            color: #3b82f6; /* Swapped to Blue */
-            margin-top: 20px;
-            font-weight: 300;
-            letter-spacing: 2px;
-        }
-
-        .episode-section {
-            padding: 120px 10%;
-            background: #12171f;
-            position: relative;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 95%);
-        }
-
-        .section-box {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .box-head {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: #2ecc71; /* Swapped to Green */
-            margin-bottom: 35px;
-            background: linear-gradient(to right, #2ecc71, #27ae60);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            position: relative;
-            border-bottom: 3px solid #3b82f6; /* Swapped to Blue */
-        }
-
-        .box-head::after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 0;
-            width: 100px;
-            height: 5px;
-            background: #3b82f6; /* Swapped to Blue */
-            animation: lineStretch 4s infinite ease-in-out;
-        }
-
-        .box-text {
-            font-size: 1.4rem;
-            color: #d1d8e0;
-            text-align: justify;
-        }
-
-        .theory-list {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .theory-item {
-            font-size: 1.4rem;
-            color: #d1d8e0;
-            margin-bottom: 25px;
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .theory-item::before {
-            content: '➤';
-            position: absolute;
-            left: 0;
-            color: #3b82f6; /* Swapped to Blue */
-            font-size: 1.6rem;
-        }
-
-        .dive-footer {
-            padding: 80px 10%;
-            background: #12171f;
-            text-align: center;
-            position: relative
+    <footer class="dive-footer">
+        <div class="footer-glow"></div>
+        <p class="footer-text"><a href="index.html" class="nav-link">Back to Home</a> | Rambled by Mark Bradley | bradleymark111@proton.me | All About <em>Severance</em></p>
+        <div class="nav-arrows">
+            <a href="season2-ep5.html" class="arrow-link"><</a>
+            <span></span>
+        </div>
+    </footer>
+</body>
+</html>
