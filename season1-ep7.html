@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S1E7: Defiant Jazz - Mark Bradley’s Blog</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #0a0e14;
+            color: #d1d8e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-width: 100%;
+            background: rgba(18, 23, 31, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            overflow-x: hidden;
+        }
+
+        .nav-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            font-size: 1.2rem;
+            color: #93c5fd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #60a5fa;
+            text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+        }
+
+        .episode-header {
+            position: relative;
+            height: 80vh;
+            background: linear-gradient(135deg, #1e40af, #0a0e14);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .header-wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(59, 130, 246, 0.25), transparent 70%);
+            animation: wavePulse 5s infinite ease-in-out;
+        }
+
+        .header-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .episode-title {
+            font-size: 5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            color: #3b82f6;
+            text-shadow: 0 0 25px rgba(59, 130, 246, 0.8), 0 0 10px rgba(59, 130, 246, 0.6);
+            animation: titleGlow 3s infinite ease-in-out;
+            margin: 0;
+        }
+
+        .episode-subtitle {
+            font-size: 1.8rem;
+            color: #93c5fd;
+            margin-top: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .episode-section {
+            padding: 120px 10%;
+            background: #12171f;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 95%);
+        }
+
+        .section-box {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .box-head {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 35px;
+            background: linear-gradient(to right, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            border-bottom: 3px solid #2ecc71; /* MDR Green */
+        }
+
+        .box-head::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 100px;
+            height: 5px;
+            background: #2ecc71; /* MDR Green */
+            animation: lineStretch 4s infinite ease-in-out;
+        }
+
+        .box-text {
+            font-size: 1.4rem;
+            color: #d1d8e0;
+            text-align: justify;
+        }
+
+        .theory-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .theory-item {
+            font-size: 1.4rem;
+            color: #d1d8e0;
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .theory-item::before {
+            content: '➤';
+            position: absolute;
+            left: 0;
+            color: #2ecc71; /* MDR Green */
+            font-size: 1.6rem;
+        }
+
+        .dive-footer {
+            padding: 80px;
+            background: #12171f;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(59, 130, 246, 0.15), transparent);
+        }
+
+        .footer-text {
+            font-size: 1.4rem;
+            color: #93c5fd;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes wavePulse {
+            0% { transform: scale(1); opacity: 0.25; }
+            50% { transform: scale(1.15); opacity: 0.4; }
+            100% { transform: scale(1); opacity: 0.25; }
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { text-shadow: 0 0 25px rgba(59, 130, 246, 0.8); }
+            50% { text-shadow: 0 0 45px rgba(59, 130, 246, 1); }
+        }
+
+        @keyframes lineStretch {
+            0% { width: 100px; }
+            50% { width: 200px; }
+            100% { width: 100px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <h2 class="nav-title">Severance Deep Dive</h2>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="#description" class="nav-link">Description</a>
+            <a href="#rating" class="nav-link">Rating</a>
+            <a href="#theories" class="nav-link">Theories</a>
+        </div>
+    </nav>
+
+    <header class="episode-header">
+        <div class="header-wave"></div>
+        <div class="header-content">
+            <h1 class="episode-title">S1E7: Defiant Jazz</h1>
+            <p class="episode-subtitle">Aired: March 25, 2022 | Rambled by Mark Bradley</p>
+        </div>
+    </header>
+
+    <section class="episode-section" id="description">
+        <div class="section-box">
+            <h2 class="box-head">What Went Down</h2>
+            <p class="box-text">
+                Episode 7’s a riot—Milchick throws a jazz dance party to chill the team out after Petey’s death hits them hard. Mark’s outie tells Devon about Petey, who’s messed up from reintegration. Inside, Helly and Mark find a security room, and Irving flips out over O&D lies.
+            </p>
+        </div>
+    </section>
+
+    <section class="episode-section" id="rating">
+        <div class="section-box">
+            <h2 class="box-head">My Rating</h2>
+            <p class="box-text">
+                10 out of 10—wild energy, big reveals! It’s like Panic! at the Disco’s “Emperor’s New Clothes”—dark, chaotic, and owns every second.
+            </p>
+        </div>
+    </section>
+
+    <section class="episode-section" id="theories">
+        <div class="section-box">
+            <h2 class="box-head">Theories Out the Wazoo</h2>
+            <ul class="theory-list">
+                <li class="theory-item">
+                    Petey’s reintegration—holy crap, he’s falling apart! What if severance isn’t reversible—like, once you’re split, putting it back fries your brain? Could be why he’s so messed up—maybe Lumon knows it’s a one-way trip, and that’s why they don’t care if innies rebel!
+                </li>
+                <li class="theory-item">
+                    Milchick’s jazz party—dude, that’s bizarre. I’m thinking it’s a distraction—Petey’s death shook them, and Lumon’s panicking. What if the music’s got subliminal stuff to calm them down? Like, it’s not just fun—it’s control, keeping that green MDR vibe steady!
+                </li>
+                <li class="theory-item">
+                    Security room—Mark and Helly finding it is huge! What if it’s the nerve center for severance? Like, cameras, chips, the works—could be where they monitor everything, and that’s why Milchick’s freaking out now—they’re too close to the truth!
+                </li>
+                <li class="theory-item">
+                    Irving and O&D—man, he’s crushed about Burt. What if O&D’s severance is different—maybe they’re not fully split, and Burt’s lying to protect something? Could be O&D’s got the real secrets, and Irving’s love is a trap to pull him in!
+                </li>
+                <li class="theory-item">
+                    Mark telling Devon—okay, he’s spilling now! What if Petey’s story starts breaking his outie’s wall? Like, he’s picking up innie vibes without knowing—could be the severance is leaking, and that’s why Ms. Cobel’s always around!
+                </li>
+                <li class="theory-item">
+                    The numbers—still obsessed—maybe they’re tied to Petey’s reintegration failing. What if MDR’s refining stuff that keeps severance stable, and Petey’s crash means they’re screwing it up—could be why Milch
