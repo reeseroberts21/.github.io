@@ -4,9 +4,239 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S2E6: Attila - Mark Bradley’s Blog</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #0a0e14;
+            color: #d1d8e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-width: 100%;
+            background: rgba(18, 23, 31, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            overflow-x: hidden;
+        }
+
+        .nav-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            font-size: 1.2rem;
+            color: #93c5fd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #60a5fa;
+            text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+        }
+
+        .episode-header {
+            position: relative;
+            height: 80vh;
+            background: linear-gradient(135deg, #1e40af, #0a0e14);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .header-wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(59, 130, 246, 0.25), transparent 70%);
+            animation: wavePulse 5s infinite ease-in-out;
+        }
+
+        .header-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .episode-title {
+            font-size: 5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            color: #3b82f6;
+            text-shadow: 0 0 25px rgba(59, 130, 246, 0.8), 0 0 10px rgba(59, 130, 246, 0.6);
+            animation: titleGlow 3s infinite ease-in-out;
+            margin: 0;
+        }
+
+        .episode-subtitle {
+            font-size: 1.8rem;
+            color: #93c5fd;
+            margin-top: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .episode-section {
+            padding: 120px 10%;
+            background: #12171f;
+            position: relative;
+        }
+
+        .section-box {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .box-head {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 35px;
+            background: linear-gradient(to right, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            border-bottom: 3px solid #2ecc71; /* MDR Green */
+        }
+
+        .box-head::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 100px;
+            height: 5px;
+            background: #2ecc71; /* MDR Green */
+            animation: lineStretch 4s infinite ease-in-out;
+        }
+
+        .box-text {
+            font-size: 1.4rem;
+            color: #d1d8e0;
+            text-align: justify;
+        }
+
+        .theory-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .theory-item {
+            font-size: 1.4rem;
+            color: #d1d8e0;
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .theory-item::before {
+            content: '➤';
+            position: absolute;
+            left: 0;
+            color: #2ecc71; /* MDR Green */
+            font-size: 1.6rem;
+        }
+
+        .dive-footer {
+            padding: 80px 10%;
+            background: #12171f;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(59, 130, 246, 0.15), transparent);
+        }
+
+        .footer-text {
+            font-size: 1.4rem;
+            color: #93c5fd;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav-arrows {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 10;
+            pointer-events: auto;
+        }
+
+        .arrow-link {
+            font-size: 2rem;
+            color: #3b82f6;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+            cursor: pointer;
+            position: relative;
+            z-index: 11;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .arrow-link:hover {
+            color: #60a5fa;
+            transform: scale(1.2);
+        }
+
+        @keyframes wavePulse {
+            0% { transform: scale(1); opacity: 0.25; }
+            50% { transform: scale(1.15); opacity: 0.4; }
+            100% { transform: scale(1); opacity: 0.25; }
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { text-shadow: 0 0 25px rgba(59, 130, 246, 0.8); }
+            50% { text-shadow: 0 0 45px rgba(59, 130, 246, 1); }
+        }
+
+        @keyframes lineStretch {
+            0% { width: 100px; }
+            50% { width: 200px; }
+            100% { width: 100px; }
+        }
+    </style>
 </head>
-<body class="season2">
+<body>
     <nav class="nav-bar">
         <h2 class="nav-title">Severance Deep Dive</h2>
         <div class="nav-links">
@@ -29,7 +259,7 @@
         <div class="section-box">
             <h2 class="box-head">What Went Down</h2>
             <p class="box-text">
-                Episode 6’s intense—Mark Scout’s innie and outie collide at “Attila,” a secret Lumon facility, where they face a brutal reintegration test. Helly R. leads MDR in a defiant push, while Reghabi’s motives get darker. Outside, Devon and Ricken uncover more of Petey’s files, and Helena Eagan’s control tightens with a chilling reveal.
+                Man, sitting here watching Episode 6, “Attila,” I’m totally losing it—Mark Scout’s innie and outie are smashing together at this creepy secret Lumon facility called Attila, and they’re putting him through some brutal reintegration test that’s got me on edge. Helly R.’s leading the MDR crew in this defiant push, not backing down, while Reghabi’s motives are getting darker by the second. Outside, Devon and Ricken are digging into more of Petey’s files, and Helena Eagan’s pulling these chilling reveals that make my skin crawl. It’s intense, and I’m glued to the screen, trying to figure out what’s next!
             </p>
         </div>
     </section>
@@ -38,7 +268,7 @@
         <div class="section-box">
             <h2 class="box-head">My Rating</h2>
             <p class="box-text">
-                10 out of 10—brutal, epic, pure <em>Severance</em> fire! It’s like Fall Out Boy’s “My Songs Know What You Did in the Dark”—dark, explosive, and leaves you reeling.
+                10 out of 10—brutal, epic, pure <em>Severance</em> fire! It’s like Fall Out Boy’s “My Songs Know What You Did in the Dark”—dark, explosive, and leaves me reeling, rewatching it over and over, man. I can’t get enough of this chaos!
             </p>
         </div>
     </section>
@@ -48,28 +278,28 @@
             <h2 class="box-head">Theories Out the Wazoo</h2>
             <ul class="theory-list">
                 <li class="theory-item">
-                    Attila facility—holy crap, what’s this place? I’m thinking it’s Lumon’s ultimate lab—where they test severance to the breaking point! Like, Mark Scout’s innie-outie clash there could be a final experiment—could be why it’s so brutal, they’re pushing him to snap or reintegrate completely! Maybe it’s where they built the chips, and that green MDR glow’s strongest here—control central!
+                    Holy crap, Attila facility—sitting here, I’m freaking out about what this place is! I’m thinking it’s Lumon’s ultimate lab, where they’re pushing severance to the breaking point, man. Like, Mark Scout’s innie-outie clash there feels like their final experiment—could be why it’s so brutal, they’re trying to make him snap or reintegrate completely! Maybe it’s where they built those chips, and that green MDR glow’s at its peak here—control central, and I’m losing sleep over it, you know?
                 </li>
                 <li class="theory-item">
-                    Mark’s clash—man, he’s breaking bad! What if Attila’s the endgame for reintegration? Like, Reghabi’s pushing him to merge, but it’s killing him—could be why Petey crashed, it’s a do-or-die test! Maybe Lumon’s watching to see if severance can hold or if they need a new tech—Mark’s the guinea pig who’s gonna show them!
+                    Mark’s clash—dude, he’s breaking bad, and I’m watching it happen, feeling every second! What if Attila’s the endgame for reintegration? Like, Reghabi’s pushing him to merge, but it’s killing him—could be why Petey crashed, it’s a do-or-die test! I’m betting Lumon’s got cameras on him, watching to see if severance holds or if they need a new tech—Mark’s my guy, but he’s their guinea pig, and I’m stressing out!
                 </li>
                 <li class="theory-item">
-                    Helly R.’s defiance—dude, she’s unstoppable! What if she’s cracked Attila’s secrets? Like, she’s leading MDR to fight back—could be she found files or tech there, and she’s about to blow this wide open! That green glow might be her key—maybe it’s powering her innie now, keeping her rebellion strong!
+                    Helly R.’s defiance—man, she’s unstoppable, and I’m cheering her on from my couch! What if she’s cracked Attila’s secrets? Like, she’s leading MDR to fight back—could be she found files or tech there, and she’s about to blow this wide open! That green glow might be her secret weapon, powering her innie to keep the rebellion going—honestly, it’s like she’s the hero I need in this show, and I’m obsessed!
                 </li>
                 <li class="theory-item">
-                    Reghabi’s darker—still don’t trust her! What if she runs Attila? Like, Lumon’s using her to test reintegration limits—could be Mark’s the bait, and she’s watching him die or survive! Maybe she’s got a new chip or wipe tech—Petey’s crash was just practice, and Mark’s next in line!
+                    Reghabi’s darker—still don’t trust her, and watching her here, I’m paranoid as hell! What if she runs Attila? Like, Lumon’s using her to test reintegration limits—could be Mark’s the bait, and she’s waiting for him to die or survive! Maybe she’s got a new chip or wipe tech—Petey’s crash was just practice, and Mark’s next, and I’m freaking out over what she’s planning!
                 </li>
                 <li class="theory-item">
-                    Petey’s files—Devon and Ricken finding more—huge! What if they’ve got Attila’s blueprint? Like, Petey left proof of this place—could be why Mark’s outie’s freaking out, it’s waking him up! Maybe those files lead to Helena Eagan or the chips—total rebellion fuel!
+                    Petey’s files—Devon and Ricken finding more, and I’m geeking out over it! What if they’ve got Attila’s blueprint? Like, Petey left proof of this place—could be why Mark’s outie’s losing it, waking up to the truth! Maybe those files lead to Helena Eagan or the chips—total rebellion fuel, and I’m hoping they save the day, man!
                 </li>
                 <li class="theory-item">
-                    Helena Eagan’s reveal—chilling as hell! What if she’s severed at Attila? Like, her innie’s been there forever—could be why that green glow’s so strong, it’s her control hub! Maybe she’s testing Mark and Helly to see if severance holds—or if it’s time to upgrade with Attila’s tech!
+                    Helena Eagan’s reveal—chilling as hell, and I’m watching it with my jaw on the floor! What if she’s severed at Attila? Like, her innie’s been there forever—could be why that green glow’s so strong, it’s her control hub! Maybe she’s testing Mark and Helly to see if severance holds—or if it’s time to upgrade with Attila’s tech, and I’m losing my mind over her cold vibes!
                 </li>
                 <li class="theory-item">
-                    The numbers—are they dead? What if Attila killed MDR refining? Like, they’re at this facility because severance’s failing—could be that green glow’s gone, and Lumon’s testing a new system! Maybe Attila’s the new MDR, and they’re rebuilding from scratch there!
+                    The numbers—are they dead? What if Attila killed MDR refining? Like, they’re at this facility because severance’s failing—could be that green glow’s gone, and Lumon’s testing a new system! Maybe Attila’s the new MDR, and they’re rebuilding from scratch there, and I’m stressing about what that means for the team!
                 </li>
                 <li class="theory-item">
-                    Oh, and since you mentioned Episode 6, let’s tie in Burt and Reghabi inventing the severance chip—Fields saying he was out with his “Lumon Partner” is massive! I’m all in on Reghabi being that partner—she’s old enough, and even with Dr. Mauer popping up, she’s the biggest suspect. Maybe Burt did the procedure himself, like Helly R., to prove it was safe—experimental, not religious bullshit like they claimed. That story about going to heaven while ignoring the gay thing? Total cover-up, man—I think Burt’s been running this show quietly the whole time, staying severed to support his creation, especially after Reghabi bailed on Lumon. His retirement? Probably just him stepping back after perfecting it—O&D’s his legacy, and he’s been pulling strings all along at Attila!
+                    Oh, and since you mentioned Episode 6, let’s tie in Burt and Reghabi inventing the severance chip—Fields saying he was out with his “Lumon Partner” is massive, and I’m rewatching it to figure it out! I’m all in on Reghabi being that partner—she’s old enough, and even with Dr. Mauer popping up, she’s the biggest suspect. Maybe Burt did the procedure himself, like Helly R., to prove it was safe—experimental, not religious bullshit like they claimed. That story about going to heaven while ignoring the gay thing? Total cover-up, man—I think Burt’s been running this show quietly the whole time, staying severed to support his creation, especially after Reghabi bailed on Lumon. His retirement? Probably just him stepping back after perfecting it—O&D’s his legacy, and he’s been pulling strings all along at Attila!
                 </li>
             </ul>
         </div>
