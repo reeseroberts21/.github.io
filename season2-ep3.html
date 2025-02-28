@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S2E2: Goodbye, Mrs. Selvig - Mark Bradley’s Blog</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #0a0e14;
+            color: #d1d8e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-width: 100%;
+            background: rgba(18, 23, 31, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            overflow-x: hidden;
+        }
+
+        .nav-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2ecc71; /* Swapped to Green */
+            margin: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            font-size: 1.2rem;
+            color: #3b82f6; /* Swapped to Blue */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #93c5fd; /* Adjusted to match new theme */
+            text-shadow: 0 0 10px rgba(147, 197, 253, 0.5);
+        }
+
+        .episode-header {
+            position: relative;
+            height: 80vh;
+            background: linear-gradient(135deg, #1e40af, #0a0e14);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .header-wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(46, 204, 113, 0.25), transparent 70%); /* Swapped to Green */
+            animation: wavePulse 5s infinite ease-in-out;
+        }
+
+        .header-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .episode-title {
+            font-size: 5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            color: #2ecc71; /* Swapped to Green */
+            text-shadow: 0 0 25px rgba(46, 204, 113, 0.8), 0 0 10px rgba(46, 204, 113, 0.6);
+            animation: titleGlow 3s infinite ease-in-out;
+            margin: 0;
+        }
+
+        .episode-subtitle {
+            font-size: 1.8rem;
+            color: #3b82f6; /* Swapped to Blue */
+            margin-top: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .episode-section {
+            padding: 120px 10%;
+            background: #12171f;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 95%);
+        }
+
+        .section-box {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .box-head {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #2ecc71; /* Swapped to Green */
+            margin-bottom: 35px;
+            background: linear-gradient(to right, #2ecc71, #27ae60);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            border-bottom: 3px solid #3b82f6; /* Swapped to Blue */
+        }
+
+        .box-head::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 100px;
+            height: 5px;
+            background: #3b82f6; /* Swapped to Blue */
+            animation: lineStretch 4s infinite ease-in-out;
+        }
+
+        .box-text {
+            font-size: 1.4rem;
+            color: #d1d8e0;
+            text-align: justify;
+        }
+
+        .theory-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .theory-item {
+            font-size: 1.4rem;
+            color: #d1d8e0;
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .theory-item::before {
+            content: '➤';
+            position: absolute;
+            left: 0;
+            color: #3b82f6; /* Swapped to Blue */
+            font-size: 1.6rem;
+        }
+
+        .dive-footer {
+            padding: 80px 10%;
+            background: #12171f;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(46, 204, 113, 0.15), transparent); /* Swapped to Green */
+        }
+
+        .footer-text {
+            font-size: 1.4rem;
+            color: #3b82f6; /* Swapped to Blue */
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav-arrows {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .arrow-link {
+            font-size: 2rem;
+            color: #2ecc71; /* Swapped to Green */
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .arrow-link:hover {
+            color: #27ae60; /* Adjusted to match new theme */
+            transform: scale(1.2);
+        }
+
+        @keyframes wavePulse {
+            0% { transform: scale(1); opacity: 0.25; }
+            50% { transform: scale(1.15); opacity: 0.4; }
+            100% { transform: scale(1); opacity: 0.25; }
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { text-shadow: 0 0 25px rgba(46, 204, 113, 0.8); }
+            50% { text-shadow: 0 0 45px rgba(46, 204, 113, 1); }
+        }
+
+        @keyframes lineStretch {
+            0% { width: 100px; }
+            50% { width: 200px; }
+            100% { width: 100px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <h2 class="nav-title">Severance Deep Dive</h2>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="#description" class="nav-link">Description</a>
+            <a href="#rating" class="nav-link">Rating</a>
+            <a href="#theories" class="nav-link">Theories</a>
+        </div>
+    </nav>
+
+    <header class="episode-header">
+        <div class="header-wave"></div>
+        <div class="header-content">
+            <h1 class="episode-title">S2E2: Goodbye, Mrs. Selvig</h1>
+            <p class="episode-subtitle">Aired: January 24, 2025 | Rambled by Mark Bradley</p>
+        </div>
+    </header>
+
+    <section class="episode-section" id="description">
+        <div class="section-box">
+            <h2 class="box-head">What Went Down</h2>
+            <p class="box-text">
+                Episode 2’s got Ms. Cobel bailing as Mrs. Selvig, leaving Mark’s outie reeling. Inside, Helly pushes the team to fight back, while Reghabi’s reintegration talk gets weirder. Mark’s outie digs into Gemma with Devon, and we see more of Helena Eagan’s cold control.
+            </p>
+        </div>
+    </section>
+
+    <section class="episode-section" id="rating">
+        <div class="section-box">
+            <h2 class="box-head">My Rating</h2>
+            <p class="box-text">
+                9 out of 10—strong, keeps the momentum! It’s like Panic! at the Disco’s “This Is Gospel”—deep, driven, and builds the stakes perfectly.
+            </p>
+        </div>
+    </section>
+
+    <section class="episode-section" id="theories">
+        <div class="section-box">
+            <h2 class="box-head">Theories Out the Wazoo</h2>
+            <ul class="theory-list">
+                <li class="theory-item">
+                    Ms. Cobel ditching Mrs. Selvig—man, she’s out! What if she’s done playing Lumon’s game? Like, she’s going full rogue now—could be she’s got dirt on them and she’s planning a takedown—maybe she’s the one who’ll free Mark and Gemma! Maybe she’s been collecting data all along, waiting for this moment to strike—imagine if she’s got Petey’s old map and she’s about to drop a bomb on Lumon!
+                </li>
+                <li class="theory-item">
+                    Helly rallying the team—dude, she’s the boss now! What if her innie’s fully taken over? Like, the gala speech flipped her outie off—could be she’s the first innie to win, and that’s why she’s pushing so hard—Lumon’s losing her! Maybe her outie’s been asleep since the speech, and Helly’s innie’s running the show—could be why that green MDR vibe’s starting to flicker, it’s breaking!
+                </li>
+                <li class="theory-item">
+                    Reghabi’s reintegration—still don’t trust her. What if it’s a kill switch? Like, Lumon sent her to erase Mark’s innie—could be why Petey’s messed up, it’s not reintegration, it’s a wipe disguised as help! Maybe she’s got some chip or tech to reset him—Petey’s crash could be proof it fries your brain, and Mark’s next if he says yes!
+                </li>
+                <li class="theory-item">
+                    Mark and Devon on Gemma—okay, they’re close! What if Gemma’s severance is the key? Like, her being Ms. Casey means Mark’s tied to the start—could be his outie figures it out and breaks them both free! Maybe Devon’s digging unlocks something—Petey’s notes, a file, anything—could be the key to cracking Lumon’s hold on both of them!
+                </li>
+                <li class="theory-item">
+                    Helena Eagan—she’s icy! What if she’s the original severed Eagan? Like, her innie’s been running Lumon forever—could be why that green MDR glow’s everywhere, it’s her signature, keeping the whole place locked down! Maybe she’s the one who invented severance, and now she’s watching Mark and Helly to see if it holds—or if it breaks!
+                </li>
+                <li class="theory-item">
+                    The numbers—man, I’m obsessed—maybe they’re breaking now! What if Helly’s speech and Mark’s slip stopped MDR cold—could be the severance is unraveling because they’re not refining anymore! That green glow could be fading—maybe it’s the power source, and without it, innies are spilling out like Mark’s innie at the gala!
+                </li>
+                <li class="theory-item">
+                    O&D’s quiet—where are they? What if Burt’s leading a revolt? Like, those weapons mean O&D’s ready to fight—could be they’re waiting for Helly to signal the big move! Maybe Burt’s got a secret innie army, and those guns are for taking down Lumon—Helly’s push could be the spark they need!
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <footer class="dive-footer">
+        <div class="footer-glow"></div>
+        <p class="footer-text"><a href="index.html" class="nav-link">Back to Home</a> | Rambled by Mark Bradley | bradleymark111@proton.me | All About <em>Severance</em></p>
+        <div class="nav-arrows">
+            <a href="season2-ep1.html" class="arrow-link"><</a>
+            <a href="season2-ep3.html" class="arrow-link">></a>
+        </div>
+    </footer>
+</body>
+</html>
