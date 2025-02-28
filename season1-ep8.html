@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S1E8: What’s for Dinner? - Mark Bradley’s Blog</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #0a0e14;
+            color: #d1d8e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-width: 100%;
+            background: rgba(18, 23, 31, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            overflow-x: hidden;
+        }
+
+        .nav-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            font-size: 1.2rem;
+            color: #93c5fd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #60a5fa;
+            text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+        }
+
+        .episode-header {
+            position: relative;
+            height: 80vh;
+            background: linear-gradient(135deg, #1e40af, #0a0e14);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .header-wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(59, 130, 246, 0.25), transparent 70%);
+            animation: wavePulse 5s infinite ease-in-out;
+        }
+
+        .header-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .episode-title {
+            font-size: 5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            color: #3b82f6;
+            text-shadow: 0 0 25px rgba(59, 130, 246, 0.8), 0 0 10px rgba(59, 130, 246, 0.6);
+            animation: titleGlow 3s infinite ease-in-out;
+            margin: 0;
+        }
+
+        .episode-subtitle {
+            font-size: 1.8rem;
+            color: #93c5fd;
+            margin-top: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .episode-section {
+            padding: 120px 10%;
+            background: #12171f;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 95%);
+        }
+
+        .section-box {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .box-head {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 35px;
+            background: linear-gradient(to right, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            border-bottom: 3px solid #2ecc71; /* MDR Green */
+        }
+
+        .box-head::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 100px;
+            height: 5px;
+            background: #2ecc71; /* MDR Green */
+            animation: lineStretch 4s infinite ease-in-out;
+        }
+
+        .box-text {
+            font-size: 1.4rem;
+            color: #d1d8e0;
+            text-align: justify;
+        }
+
+        .theory-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .theory-item {
+            font-size: 1.4rem;
+            color: #d1d8e0;
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .theory-item::before {
+            content: '➤';
+            position: absolute;
+            left: 0;
+            color: #2ecc71; /* MDR Green */
+            font-size: 1.6rem;
+        }
+
+        .dive-footer {
+            padding: 80px 10%;
+            background: #12171f;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(59, 130, 246, 0.15), transparent);
+        }
+
+        .footer-text {
+            font-size: 1.4rem;
+            color: #93c5fd;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav-arrows {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .arrow-link {
+            font-size: 2rem;
+            color: #3b82f6;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .arrow-link:hover {
+            color: #60a5fa;
+            transform: scale(1.2);
+        }
+
+        @keyframes wavePulse {
+            0% { transform: scale(1); opacity: 0.25; }
+            50% { transform: scale(1.15); opacity: 0.4; }
+            100% { transform: scale(1); opacity: 0.25; }
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { text-shadow: 0 0 25px rgba(59, 130, 246, 0.8); }
+            50% { text-shadow: 0 0 45px rgba(59, 130, 246, 1); }
+        }
+
+        @keyframes lineStretch {
+            0% { width: 100px; }
+            50% { width: 200px; }
+            100% { width: 100px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <h2 class="nav-title">Severance Deep Dive</h2>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="#description" class="nav-link">Description</a>
+            <a href="#rating" class="nav-link">Rating</a>
+            <a href="#theories" class="nav-link">Theories</a>
+        </div>
+    </nav>
+
+    <header class="episode-header">
+        <div class="header-wave"></div>
+        <div class="header-content">
+            <h1 class="episode-title">S1E8: What’s for Dinner?</h1>
+            <p class="episode-subtitle">Aired: April 1, 2022 | Rambled by Mark Bradley</p>
+        </div>
+    </header>
+
+    <section class="episode-section" id="description">
+        <div class="section-box">
+            <h2 class="box-head">What Went Down</h2>
+            <p class="box-text">
+                Episode 8’s tense—Mark’s team plans a big waffle party, but Helly ditches it for a speech at a Lumon gala. Outside, Mark’s outie gets closer to Devon, who’s digging into Petey’s stuff. Inside, Ms. Cobel flips out, and Mark finds a pic of Gemma—turns out Ms. Casey’s his wife!
+            </p>
+        </div>
+    </section>
+
+    <section class="episode-section" id="rating">
+        <div class="section-box">
+            <h2 class="box-head">My Rating</h2>
+            <p class="box-text">
+                10 out of 10—mind-blowing twist with Gemma! It’s like Fall Out Boy’s “Uma Thurman”—fast, slick, and drops a bomb that changes everything.
+            </p>
+        </div>
+    </section>
+
+    <section class="episode-section" id="theories">
+        <div class="section-box">
+            <h2 class="box-head">Theories Out the Wazoo</h2>
+            <ul class="theory-list">
+                <li class="theory-item">
+                    Gemma’s Ms. Casey—holy freaking crap, I didn’t see that coming! What if she’s been severed all along, and that’s why Mark’s outie thinks she’s dead? Like, Lumon faked her death, stuck her innie in there as Ms. Casey, and he’s been working with her this whole time—could be why she’s so weird and robotic! Maybe they pulled her out of some accident or something and turned her into this wellness zombie, and Mark’s been clueless—man, that’s dark, but it fits how messed up Lumon is, right? Like, they’re playing God with people’s lives here!
+                </li>
+                <li class="theory-item">
+                    Helly’s gala speech—dude, she’s a badass! What if her outie’s playing both sides? Like, she’s in on it with Lumon but secretly sabotaging it—could be why she let her innie go rogue, to mess with their plans from the inside! Maybe her outie’s got some grudge against Lumon, and this is her way of sticking it to them—letting Helly loose to spill the beans while she plays innocent up top. It’s sneaky, but after that video rejection, I wouldn’t put it past her!
+                </li>
+                <li class="theory-item">
+                    Waffle party—okay, it’s fun, but creepy as hell. What if it’s a reward that’s really a test? Like, they’re seeing how innies react to treats—could be part of the severance programming, keeping them hooked on Lumon with that green MDR glow! Maybe the waffles are laced with something, like a drug to keep them chill—Mark’s all into it, but Helly bailing shows it’s not working on her—could be her innie’s too strong for their tricks!
+                </li>
+                <li class="theory-item">
+                    Ms. Cobel losing it—she’s unhinged now! What if she’s scared because Gemma’s severance is slipping? Like, Mark recognizing her could mean it’s breaking—could be why she’s so mad, she’s losing control of this whole experiment! Maybe she’s been running this Gemma thing on the side, and now it’s blowing up in her face—Lumon’s gonna be pissed if she screwed up their perfect little innie factory!
+                </li>
+                <li class="theory-item">
+                    Devon digging into Petey—man, she’s close! What if she finds proof Lumon’s behind it all? Like, Petey left something—maybe that map—and it’s gonna blow Mark’s outie world apart—could be the severance starts leaking big time now! If she connects Petey to Gemma, boom, Mark’s outie might start remembering stuff he shouldn’t—like, what if he’s the key to waking Gemma up too?
+                </li>
+                <li class="theory-item">
+                    The numbers—alright, with Gemma in play, what if they’re her memories? Like, Mark’s been refining his own wife’s life away—could be why he’s so good at it, it’s personal, and Lumon’s using that to keep him going! Every click could be another piece of Gemma gone, and he’s just sitting there doing it—maybe that’s why the green glow’s so strong, it’s her essence or something freaky like that!
+                </li>
+                <li class="theory-item">
+                    O&D and Burt—Irving’s still torn up—what if Burt’s part of Gemma’s severance? Like, O&D built her chip, and Burt knows—could be why he’s so nice, he’s hiding the truth from Irving! Maybe O&D’s the tech wing, and they’ve been tweaking Gemma’s innie to keep her locked in—Irving’s crush could be a distraction to stop him digging too deep!
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <footer class="dive-footer">
+        <div class="footer-glow"></div>
+        <p class="footer-text"><a href="index.html" class="nav-link">Back to Home</a> | Rambled by Mark Bradley | bradleymark111@proton.me | All About <em>Severance</em></p>
+        <div class="nav-arrows">
+            <a href="season1-ep7.html" class="arrow-link">&lt;</a>
+            <a href="season1-ep9.html" class="arrow-link">&gt;</a>
+        </div>
+    </footer>
+</body>
+</html>
