@@ -3,70 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Severance Nexus - Crafted by Cassian Holt</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Severance Deep Dive - Mark Bradley’s Blog</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #0a0e14;
+            color: #d1d8e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header: Bold, animated, modern */
+        .deep-dive-header {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e40af, #0a0e14);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .header-wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(59, 130, 246, 0.25), transparent 70%);
+            animation: wavePulse 5s infinite ease-in-out;
+        }
+
+        .header-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .dive-title {
+            font-size: 6.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 12px;
+            color: #3b82f6;
+            text-shadow: 0 0 25px rgba(59, 130, 246, 0.8), 0 0 10px rgba(59, 130, 246, 0.6);
+            animation: titleGlow 3s infinite ease-in-out;
+            margin: 0;
+        }
+
+        .dive-subtitle {
+            font-size: 2rem;
+            color: #93c5fd;
+            margin-top: 25px;
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+
+        /* Intro Section: Dark, sleek, verbose */
+        .dive-intro {
+            padding: 140px 10%;
+            background: #12171f;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 95%);
+        }
+
+        .intro-box {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .box-head {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 40px;
+            background: linear-gradient(to right, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+        }
+
+        .box-head::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 120px;
+            height: 5px;
+            background: #60a5fa;
+            animation: lineStretch 4s infinite ease-in-out;
+        }
+
+        .box-text {
+            font-size: 1.5rem;
+            color: #d1d8e0;
+            text-align: justify;
+        }
+
+        /* Episodes Section: Dynamic, interactive grid */
+        .dive-episodes {
+            padding: 140px 10%;
+            background: #0a0e14;
+        }
+
+        .episodes-cluster {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .cluster-head {
+            grid-column: 1 / -1;
+            font-size: 3rem;
+            font-weight: 600;
+            color: #93c5fd;
+            text-align: center;
+            padding: 25px 0;
+            background: linear-gradient(to right, transparent, #3b82f6, transparent);
+        }
+
+        .cluster-link {
+            background: #1c2526;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #3b82f6;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .cluster-link::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(59, 130, 246, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .cluster-link:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .cluster-link:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 25px rgba(59, 130, 246, 0.5);
+            color: #60a5fa;
+        }
+
+        /* Footer: Clean, modern, striking */
+        .dive-footer {
+            padding: 80px;
+            background: #12171f;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(59, 130, 246, 0.15), transparent);
+        }
+
+        .footer-text {
+            font-size: 1.4rem;
+            color: #93c5fd;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Animations */
+        @keyframes wavePulse {
+            0% { transform: scale(1); opacity: 0.25; }
+            50% { transform: scale(1.15); opacity: 0.4; }
+            100% { transform: scale(1); opacity: 0.25; }
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { text-shadow: 0 0 25px rgba(59, 130, 246, 0.8); }
+            50% { text-shadow: 0 0 45px rgba(59, 130, 246, 1); }
+        }
+
+        @keyframes lineStretch {
+            0% { width: 120px; }
+            50% { width: 200px; }
+            100% { width: 120px; }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header: A sleek, animated plunge into the Nexus -->
-    <header class="nexus-entry">
-        <div class="entry-pulse"></div>
-        <div class="entry-core">
-            <h1 class="nexus-title">Severance Nexus</h1>
-            <p class="nexus-tag">Unraveling Lumon’s Secrets with Cassian Holt</p>
+    <!-- Header: A sleek, animated plunge into Mark’s world -->
+    <header class="deep-dive-header">
+        <div class="header-wave"></div>
+        <div class="header-content">
+            <h1 class="dive-title">Severance Deep Dive</h1>
+            <p class="dive-subtitle">Mark Bradley’s Obsessive Blog</p>
         </div>
     </header>
 
-    <!-- Intro Section: Bold, dark, and modern -->
-    <section class="nexus-intro">
-        <div class="intro-frame">
-            <h2 class="frame-head">The Mission Unleashed</h2>
-            <p class="frame-text">
-                What’s up, *Severance* fanatics and Apple TV power players! I’m Cassian Holt, your resident deep-diver into the fractured world of Lumon Industries. This isn’t some half-baked fan page—it’s a full-throttle nexus of analysis, built from the ground up to dissect every episode with razor-sharp insight and a hunger for the truth. I’m breaking down the show’s genius, serving up reviews that hit hard, and tossing out theories wild enough to make Dylan’s conspiracy board blush. Why? To prove I’ve got the chops for early access to whatever’s next. This is my domain—dive in, and let’s crack this thing wide open.
+    <!-- Intro Section: Mark talks FOREVER -->
+    <section class="dive-intro">
+        <div class="intro-box">
+            <h2 class="box-head">Hey, What’s This All About?</h2>
+            <p class="box-text">
+                Alright, so here’s the deal—hey, I’m Mark Bradley, just your average dude who’s completely lost his mind over *Severance*, and I mean that in the best way possible, like I can’t stop thinking about it, talking about it, dreaming about it, you name it, it’s taken over my life. This show, man, it’s insane, right? Like, I sit down to watch it and I’m just sucked into this whole world of Lumon Industries, with all its creepy vibes and weird rules and severance stuff that makes my head spin, and I’m like, okay, I’ve got to do something about this, I’ve got to get all my thoughts out there because there’s just so much to unpack. So I built this blog, this giant sprawling thing, because I’ve got a million things to say about every single episode—like, seriously, I could go on for hours about just the first five minutes of the pilot, and don’t even get me started on the wellness sessions or the goats or whatever the hell those numbers mean, it’s all so wild. I’m not some fancy critic or anything, just a guy who loves this show way too much, probably more than is healthy, but whatever, here we are. I’ve been rewatching every episode, taking notes like a lunatic, scribbling down every detail I can catch, because there’s always something new—did you notice how the lighting changes when Mark’s innie switches to his outie? Or how Helly’s always got this look like she’s about to flip a table? I mean, come on, it’s genius, and I’m here for it, all of it, every single second. This blog’s my way of diving in deep, like super deep, into everything *Severance* throws at us—I’m talking episode breakdowns that go on forever, reviews where I ramble about how much I love Adam Scott’s confused face, and theories that are probably nuts but I swear they make sense if you squint, like maybe Lumon’s secretly cloning people or something, I don’t know, I’ve got a lot to say about that too. I’ve been hooked since day one, couldn’t peel my eyes away from the screen, and now I’m just this guy who can’t shut up about it, honestly it’s like Fall Out Boy’s “Sugar, We’re Goin Down” stuck in my head but it’s the whole show instead, swinging for the fences with every episode. Anyway, I’ve got so much to share—like, you wouldn’t believe how long I could talk about the MDR team’s dynamic, Dylan’s sarcasm, Irving’s weird devotion, Helly’s badass energy, it’s all gold, pure gold, and I’m not stopping anytime soon. I’ve watched every scene a dozen times, paused it to stare at the background, rewound to catch every line, because this show’s layered like nobody’s business, and I’m obsessed with peeling it apart. So yeah, this is my blog, my deep dive, my ramble-fest—stick around, because I’m not even close to done talking about *Severance*, not by a long shot, I’ve got pages and pages of thoughts, probably enough to fill a whole book if I wanted, but for now it’s all here, every word, every rant, every little thing I’ve noticed, because this show deserves it, you know? It’s not just TV, it’s a freaking experience, and I’m living in it 24/7, so let’s do this, let’s dig into every corner of Lumon together, because I’ve got a lot to say and I’m just getting started, trust me, this is gonna be a wild ride!
             </p>
         </div>
     </section>
 
-    <!-- Pitch Section: High-energy, futuristic -->
-    <section class="nexus-pitch">
-        <div class="pitch-frame">
-            <h2 class="frame-head">Apple TV, Hear Me Out</h2>
-            <p class="frame-text">
-                Yo, Apple TV crew—this is Cassian Holt, stepping up to the plate. I’ve poured everything into this site to amplify *Severance*’s brilliance, from gut-punch reviews to summaries tighter than a Lumon security lock. Give me early access, and you’re not just feeding a fan—you’re arming a megaphone who’ll keep the hype blazing. My theories? They’re the kind that’d make Helly raise an eyebrow and Mark question his reality. I’m ready to push this fandom into overdrive, keeping it alive and buzzing like a pre-defiant jazz MDR. Let’s team up and make *Severance* the juggernaut it deserves to be—early access is the key, and I’m your lockpick.
-            </p>
+    <!-- Episodes Section: A slick grid for Mark’s rants -->
+    <section class="dive-episodes">
+        <h2 class="box-head">The Episode Rundown</h2>
+        <div class="episodes-cluster">
+            <h3 class="cluster-head">Season 1</h3>
+            <a href="season1-ep1.html" class="cluster-link">E1: Good News About Hell</a>
+            <a href="season1-ep2.html" class="cluster-link">E2: Half Loop</a>
+            <a href="season1-ep3.html" class="cluster-link">E3: In Perpetuity</a>
+            <a href="season1-ep4.html" class="cluster-link">E4: The You You Are</a>
+            <a href="season1-ep5.html" class="cluster-link">E5: The Grim Barbarity of Optics and Design</a>
+            <a href="season1-ep6.html" class="cluster-link">E6: Hide and Seek</a>
+            <a href="season1-ep7.html" class="cluster-link">E7: Defiant Jazz</a>
+            <a href="season1-ep8.html" class="cluster-link">E8: What’s for Dinner?</a>
+            <a href="season1-ep9.html" class="cluster-link">E9: The We We Are</a>
+            <h3 class="cluster-head">Season 2</h3>
+            <a href="season2-ep1.html" class="cluster-link">E1: Hello, Ms. Cobel</a>
+            <a href="season2-ep2.html" class="cluster-link">E2: Goodbye, Mrs. Selvig</a>
+            <a href="season2-ep3.html" class="cluster-link">E3: Who Is Alive?</a>
+            <a href="season2-ep4.html" class="cluster-link">E4: Woe’s Hollow</a>
+            <a href="season2-ep5.html" class="cluster-link">E5: Trojan’s Horse</a>
+            <a href="season2-ep6.html" class="cluster-link">E6: Attila</a>
+            <a href="season2-ep7.html" class="cluster-link">E7: Chikhai Bardo</a>
+            <a href="season2-ep8.html" class="cluster-link">E8: [TBD]</a>
+            <a href="season2-ep9.html" class="cluster-link">E9: [TBD]</a>
+            <a href="season2-ep10.html" class="cluster-link">E10: [TBD]</a>
         </div>
     </section>
 
-    <!-- Episodes Section: A slick, interactive grid -->
-    <section class="nexus-episodes">
-        <h2 class="frame-head">Episode Dive-In</h2>
-        <div class="episodes-matrix">
-            <h3 class="matrix-label">Season 1</h3>
-            <a href="season1-ep1.html" class="matrix-cell">E1: Good News About Hell</a>
-            <a href="season1-ep2.html" class="matrix-cell">E2: Half Loop</a>
-            <a href="season1-ep3.html" class="matrix-cell">E3: In Perpetuity</a>
-            <a href="season1-ep4.html" class="matrix-cell">E4: The You You Are</a>
-            <a href="season1-ep5.html" class="matrix-cell">E5: The Grim Barbarity of Optics and Design</a>
-            <a href="season1-ep6.html" class="matrix-cell">E6: Hide and Seek</a>
-            <a href="season1-ep7.html" class="matrix-cell">E7: Defiant Jazz</a>
-            <a href="season1-ep8.html" class="matrix-cell">E8: What’s for Dinner?</a>
-            <a href="season1-ep9.html" class="matrix-cell">E9: The We We Are</a>
-            <h3 class="matrix-label">Season 2</h3>
-            <a href="season2-ep1.html" class="matrix-cell">E1: Hello, Ms. Cobel</a>
-            <a href="season2-ep2.html" class="matrix-cell">E2: Goodbye, Mrs. Selvig</a>
-            <a href="season2-ep3.html" class="matrix-cell">E3: Who Is Alive?</a>
-            <a href="season2-ep4.html" class="matrix-cell">E4: Woe’s Hollow</a>
-            <a href="season2-ep5.html" class="matrix-cell">E5: Trojan’s Horse</a>
-            <a href="season2-ep6.html" class="matrix-cell">E6: Attila</a>
-            <a href="season2-ep7.html" class="matrix-cell">E7: Chikhai Bardo</a>
-            <a href="season2-ep8.html" class="matrix-cell">E8: [TBD]</a>
-            <a href="season2-ep9.html" class="matrix-cell">E9: [TBD]</a>
-            <a href="season2-ep10.html" class="matrix-cell">E10: [TBD]</a>
-        </div>
-    </section>
-
-    <footer class="nexus-anchor">
-        <div class="anchor-glow"></div>
-        <p class="anchor-text">Built by Cassian Holt | bradleymark111@proton.me | For *Severance* Glory</p>
+    <footer class="dive-footer">
+        <div class="footer-glow"></div>
+        <p class="footer-text">Rambled into Existence by Mark Bradley | bradleymark111@proton.me | All About *Severance*</p>
     </footer>
 </body>
 </html>
