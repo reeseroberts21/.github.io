@@ -3,48 +3,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Severance S1E1: Good News About Hell - Cassian Holt</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>S1E1: Good News About Hell - Mark Bradley’s Blog</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #0a0e14;
+            color: #d1d8e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(18, 23, 31, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            font-size: 1.2rem;
+            color: #93c5fd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #60a5fa;
+            text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+        }
+
+        .episode-header {
+            position: relative;
+            height: 80vh;
+            background: linear-gradient(135deg, #1e40af, #0a0e14);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .header-wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(59, 130, 246, 0.25), transparent 70%);
+            animation: wavePulse 5s infinite ease-in-out;
+        }
+
+        .header-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .episode-title {
+            font-size: 5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            color: #3b82f6;
+            text-shadow: 0 0 25px rgba(59, 130, 246, 0.8), 0 0 10px rgba(59, 130, 246, 0.6);
+            animation: titleGlow 3s infinite ease-in-out;
+            margin: 0;
+        }
+
+        .episode-subtitle {
+            font-size: 1.8rem;
+            color: #93c5fd;
+            margin-top: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .episode-section {
+            padding: 120px 10%;
+            background: #12171f;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 95%);
+        }
+
+        .section-box {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .box-head {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 35px;
+            background: linear-gradient(to right, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            border-bottom: 3px solid #2ecc71; /* MDR Green */
+        }
+
+        .box-head::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 100px;
+            height: 5px;
+            background: #2ecc71; /* MDR Green */
+            animation: lineStretch 4s infinite ease-in-out;
+        }
+
+        .box-text {
+            font-size: 1.4rem;
+            color: #d1d8e0;
+            text-align: justify;
+        }
+
+        .theory-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .theory-item {
+            font-size: 1.4rem;
+            color: #d1d8e0;
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .theory-item::before {
+            content: '➤';
+            position: absolute;
+            left: 0;
+            color: #2ecc71; /* MDR Green */
+            font-size: 1.6rem;
+        }
+
+        .dive-footer {
+            padding: 80px;
+            background: #12171f;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(59, 130, 246, 0.15), transparent);
+        }
+
+        .footer-text {
+            font-size: 1.4rem;
+            color: #93c5fd;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes wavePulse {
+            0% { transform: scale(1); opacity: 0.25; }
+            50% { transform: scale(1.15); opacity: 0.4; }
+            100% { transform: scale(1); opacity: 0.25; }
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { text-shadow: 0 0 25px rgba(59, 130, 246, 0.8); }
+            50% { text-shadow: 0 0 45px rgba(59, 130, 246, 1); }
+        }
+
+        @keyframes lineStretch {
+            0% { width: 100px; }
+            50% { width: 200px; }
+            100% { width: 100px; }
+        }
+    </style>
 </head>
 <body>
-    <header class="lumen-portal">
-        <div class="gradient-shroud"></div>
-        <div class="portal-core">
-            <h1>Season 1, Episode 1: Good News About Hell</h1>
-            <p>Aired: February 18, 2022 | Analyzed by Cassian Holt</p>
+    <nav class="nav-bar">
+        <h2 class="nav-title">Severance Deep Dive</h2>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="#description" class="nav-link">Description</a>
+            <a href="#rating" class="nav-link">Rating</a>
+            <a href="#theories" class="nav-link">Theories</a>
+        </div>
+    </nav>
+
+    <header class="episode-header">
+        <div class="header-wave"></div>
+        <div class="header-content">
+            <h1 class="episode-title">S1E1: Good News About Hell</h1>
+            <p class="episode-subtitle">Aired: February 18, 2022 | Rambled by Mark Bradley</p>
         </div>
     </header>
 
-    <section class="origin-vault">
-        <div class="vault-chamber">
-            <h2>Episode Summary - The Opening Rift</h2>
-            <p>
-                Here begins the saga of *Severance*, a tale that unfolds with the quiet intensity of a whisper in Lumon’s endless corridors. We meet Mark Scout, a man whose life is split by the severance procedure into an innie and an outie, two halves orbiting the same fractured core. His innie awakens on a cold table, disoriented, facing Helly Rigg’s probing questions—her own confusion a mirror to his as she joins the ranks of Macrodata Refinement. Outside, Mark’s outie drifts through a haze of grief, tethered to the memory of his lost wife, Gemma, while Mrs. Selvig (soon revealed as Ms. Cobel) watches with a predator’s patience. Within Lumon, Mark, Dylan, and Irving initiate Helly into their cryptic task, refining numbers that hum with unspoken meaning. This premiere is a slow burn, a foundation laid with meticulous care, its sterile whites and muted tones crafting a world as unsettling as it is magnetic.
+    <section class="episode-section" id="description">
+        <div class="section-box">
+            <h2 class="box-head">What Went Down</h2>
+            <p class="box-text">
+                Okay, so this is where it all kicks off—<em>Severance</em> starts with Mark Scout waking up on a table at Lumon Industries, totally confused, and Helly’s there asking him stuff like it’s some weird job interview from hell. He’s an innie, split from his outie life, and outside, the real Mark’s just a dude grieving his wife, Gemma, while his neighbor Mrs. Selvig (who’s secretly Ms. Cobel, mind blown) keeps tabs on him. Inside, Mark’s team—Dylan, Irving, and newbie Helly—start refining these crazy numbers, and it’s all super mysterious and creepy. That’s the gist—bam, we’re in!
             </p>
         </div>
     </section>
 
-    <section class="pitch-arena">
-        <div class="arena-stage">
-            <h2>Review - A First Impression</h2>
-            <p>
-                This episode is a masterstroke of tension and intrigue, directed by Ben Stiller with a vision that turns Lumon’s antiseptic halls into a character of their own—silent, watchful, oppressive. Adam Scott’s Mark is a revelation, his innie’s bewilderment clashing beautifully with his outie’s subdued sorrow, while Britt Lower’s Helly brings a spark of defiance that promises fireworks ahead. The refinement scenes, though shrouded in mystery, are oddly hypnotic, pulling you into their rhythm like a trance. I give it a 9 out of 10—a near-perfect start that hooks without rushing, leaving you with questions that linger like a My Chemical Romance riff from 2004. It’s a slow dance into the unknown, and I’m all in for the ride.
+    <section class="episode-section" id="rating">
+        <div class="section-box">
+            <h2 class="box-head">My Rating</h2>
+            <p class="box-text">
+                I’m giving this a solid 9 out of 10—it’s a killer start, hooks you right in without overexplaining, and sets up so much juicy stuff to chew on. It’s like Panic! at the Disco’s “I Write Sins Not Tragedies”—tight, catchy, and leaves you wanting more, a total banger that nails the vibe from the jump.
             </p>
         </div>
     </section>
 
-    <section class="theory-matrix">
-        <div class="matrix-node">
-            <h2>Theory Speculation - The Unseen Layers</h2>
-            <p>
-                Let’s peel back the veneer of this premiere and dive into the abyss of possibility! What if severance isn’t just a memory split but a cloning experiment—a way to duplicate consciousness, with Helly’s resistance hinting at a glitch in the system, her outie’s will seeping through the cracks? Those numbers they refine—could they be pieces of a psychological map, charting the minds of Lumon’s workers to build a digital purgatory? Ms. Cobel’s dual role as Mrs. Selvig suggests she’s more than a supervisor—perhaps a sentinel ensuring Mark’s outie stays broken, or a mastermind testing the limits of severance’s control. But here’s the wild leap: what if Lumon’s goal is immortality, severing souls to preserve the Eagan legacy in a server farm beneath the campus? The wellness sessions, the goats to come—pieces of a puzzle where Mark and Helly are unwitting pawns in a game of eternal dominion. This is just the start—stay tuned as I unravel more!
-            </p>
+    <section class="episode-section" id="theories">
+        <div class="section-box">
+            <h2 class="box-head">Theories Out the Wazoo</h2>
+            <ul class="theory-list">
+                <li class="theory-item">
+                    Alright, so first off, what’s up with this severance thing—could it be more than just splitting memories? Like, what if they’re actually cloning people or something nuts like that? Mark wakes up all dazed on that table, and Helly’s grilling him like she’s testing something—what if it’s not his first time there, you know? Maybe they’ve got a bunch of Mark copies running around, and this is just the latest one waking up, totally clueless. I mean, the way he’s so foggy about everything, it’s like his brain’s been wiped and rebooted, not just split, and that’s freaky as hell to think about—like, are we even watching the real Mark here?
+                </li>
+                <li class="theory-item">
+                    And then there’s Helly—man, she’s got this vibe like she’s not buying any of this Lumon crap from the second she opens her eyes. What if her outie’s some kind of rebel or something, and her innie’s picking up on that somehow? Like, maybe the severance isn’t perfect, and bits of her real self are leaking through—I saw how she hesitated answering those questions, almost like she’s fighting it inside. Could be the tech’s got cracks, and she’s the first one showing it, which would totally mess with Lumon’s whole deal, right? Like, imagine if she’s secretly aware of more than she lets on, just playing along for now.
+                </li>
+                <li class="theory-item">
+                    Oh, and those numbers they’re refining—what even are they? I’ve been thinking about this nonstop, and I’m betting they’re not just random data. What if they’re, like, pieces of people’s memories or something? Like, they’re sitting there sorting through stuff that used to be in someone’s head—maybe even their own heads—and they don’t even know it! It’s all so hush-hush, and the way they’re so focused on it, it’s gotta be important, right? Could be Lumon’s collecting something big, like building a giant memory bank or a mind control thing—okay, that’s wild, but this episode’s got me paranoid already!
+                </li>
+                <li class="theory-item">
+                    Then there’s Ms. Cobel pretending to be Mrs. Selvig—holy crap, that’s sneaky. Why’s she watching Mark outside like that? I think she’s gotta be some kind of spy or enforcer for Lumon, making sure his outie doesn’t figure anything out. Like, what if she’s there to keep him sad and distracted about Gemma so his innie stays in line? Or maybe she’s testing if the severance holds up outside the building—like, she’s poking around to see if he remembers anything he shouldn’t. That double life she’s pulling off is shady as hell, and I’m convinced she’s up to way more than just being nosy.
+                </li>
+                <li class="theory-item">
+                    Speaking of Gemma, alright, this one’s a stretch, but what if she’s not really dead? Like, what if Lumon faked her death and she’s still alive somewhere, maybe even inside Lumon as an innie herself? Mark’s so torn up about her, but we don’t see a body or anything—it’s all just him moping around. Could be they severed her too, and she’s working in some other department, and he doesn’t even know she’s right under his nose! That’d be a gut punch, and this episode’s got that sneaky vibe where anything’s possible, you know?
+                </li>
+                <li class="theory-item">
+                    Oh, and the whole Lumon setup—those sterile halls and weird rules—it’s giving me cult vibes big time. What if this isn’t just a company but some freaky secret society? Like, the severance thing could be their way of brainwashing people into loyal drones, and Mark and the team are just the first batch. The way they’re so calm about not knowing anything outside, it’s like they’ve been programmed to not even care—maybe that’s the real point of all this, turning people into perfect little workers who don’t ask questions!
+                </li>
+                <li class="theory-item">
+                    Last one for now—those wellness sessions they hint at, what’s that about? I’m thinking they’re not just some HR fluff—what if they’re, like, hypnosis or something to keep the innies in check? Mark’s all chill about it, but Helly’s not, and that makes me wonder if it’s messing with their heads more than we see. Could be Lumon’s got this whole mind control layer going on, and the first episode’s just scratching the surface of how deep it goes—man, I’m already losing sleep over this!
+                </li>
+            </ul>
         </div>
     </section>
 
-    <footer class="lumen-depths">
-        <div class="depths-layer"></div>
-        <p><a href="index.html">Back to Chronicles</a> | Crafted by Cassian Holt | bradleymark111@proton.me</p>
+    <footer class="dive-footer">
+        <div class="footer-glow"></div>
+        <p class="footer-text"><a href="index.html" class="nav-link">Back to Home</a> | Rambled by Mark Bradley | bradleymark111@proton.me | All About <em>Severance</em></p>
     </footer>
 </body>
 </html>
