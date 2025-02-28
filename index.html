@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Severance Scoop - Unravel Lumon’s Secrets</title>
+    <style>
+        /* Reset default styles for consistency */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif; /* Free Google Font - load externally if needed */
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header - Hero Section */
+        header {
+            background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px 60px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: fadeIn 2s ease-in;
+        }
+
+        header p {
+            font-size: 20px;
+            opacity: 0.9;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        header img {
+            width: 100%;
+            max-width: 1200px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #ffffff;
+            padding: 15px 0;
+            border-bottom: 2px solid #d32f2f;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover, nav a:focus {
+            background-color: #d32f2f;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(211, 47, 47, 0.5);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 350px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 2px solid #d32f2f;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card h3 {
+            font-size: 24px;
+            color: #d32f2f;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #d32f2f;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .card a:hover {
+            background-color: #b71c1c;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 { font-size: 36px; }
+            header p { font-size: 16px; }
+            nav ul { flex-direction: column; align-items: center; gap: 15px; }
+            .card { width: 100%; margin-bottom: 20px; }
+        }
+
+        @media (max-width: 480px) {
+            header { padding: 50px 10px 30px; }
+            .main-content { padding: 0 10px; }
+            .card img { height: 150px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Severance Scoop</h1>
+        <p>Unraveling Lumon’s Mysteries, One Episode at a Time</p>
+        <img src="https://images.pexels.com/photos/3267215/pexels-photo-3267215.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Mysterious office hallway" loading="lazy">
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="overall-reviews.html">Overall Reviews</a></li>
+            <li><a href="working-theories.html">Working Theories</a></li>
+            <li><a href="season1-episodes.html">Season 1 Episodes</a></li>
+            <li><a href="season2-episodes.html">Season 2 Episodes</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Severance logo inspiration" loading="lazy">
+            <div class="card-content">
+                <h3>Explore Season 1 & 2 Reviews</h3>
+                <p>Dive into detailed, weekly-updated reviews of *Severance*, analyzing every twist and turn in Lumon’s world. From Mark’s journey to Helly’s rebellion, we’ve got it all covered with sharp insights.</p>
+                <a href="overall-reviews.html">Read More</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.pexels.com/photos/3775120/pexels-photo-3775120.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Mysterious silhouette" loading="lazy">
+            <div class="card-content">
+                <h3>Unpack Our Theories</h3>
+                <p>Speculate with us on Lumon’s secrets, severance tech, and Kier’s legacy. Updated weekly with bold, original theories after each new episode—join the conversation!</p>
+                <a href="working-theories.html">Discover Theories</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Office grid pattern" loading="lazy">
+            <div class="card-content">
+                <h3>Episode-by-Episode Breakdowns</h3>
+                <p>Navigate to individual episode pages for in-depth reviews, summaries, and theories for every *Severance* installment across both seasons. Updated weekly with new releases.</p>
+                <a href="season1-episodes.html">Explore Episodes</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Severance Scoop | Created by Alex Keene | Follow us on <a href="https://x.com/SeveranceScoopAlex" style="color: #d32f2f; text-decoration: underline;">X</a></p>
+    </footer>
+</body>
+</html>
