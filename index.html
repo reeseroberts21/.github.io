@@ -263,6 +263,35 @@
             50% { width: 200px; }
             100% { width: 120px; }
         }
+        #theories {
+            padding: 20px;
+            text-align: center;
+        }
+        .theory-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .theory-card {
+            background: white;
+            padding: 15px;
+            width: 250px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        .theory-card:hover {
+            transform: scale(1.05);
+        }
+        .theory-card a {
+            text-decoration: none;
+            color: #222;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
     </style>
     <meta name="google-site-verification" content="8JUWcnNKxy1Bw1ko8qHDAyS34cV5YLGCV6PDcnp5j4Y" />
 </head>
@@ -322,15 +351,36 @@
     </section>
     <section id="theories">
         <h1>Severance Theories</h1>
-        <ul>
-            <li><a href="cold-harbor.html">What is Cold Harbor?</a></li>
-            <li><a href="chip-inventor.html">Who Invented the Chip?</a></li>
-            <li><a href="goats-theory.html">What Are the Goats For?</a></li>
-            <li><a href="kier-theories.html">Kier Theories</a></li>
-            <li><a href="mark-s.html">Why Mark S.?</a></li>
-            <li><a href="ricken-theory.html">The Mystery of Ricken</a></li>
-            <li><a href="reghabi-theory.html">Reghabi’s True Role</a></li>
-        </ul>
+        <div class="theory-container">
+            <div class="theory-card">
+                <p>What is Cold Harbor?</p>
+                <a href="cold-harbor.html">Read More</a>
+            </div>
+            <div class="theory-card">
+                <p>Who Invented the Chip?</p>
+                <a href="chip-inventor.html">Read More</a>
+            </div>
+            <div class="theory-card">
+                <p>What Are the Goats For?</p>
+                <a href="goats-theory.html">Read More</a>
+            </div>
+            <div class="theory-card">
+                <p>Kier Theories</p>
+                <a href="kier-theories.html">Read More</a>
+            </div>
+            <div class="theory-card">
+                <p>Why Mark S.?</p>
+                <a href="mark-s.html">Read More</a>
+            </div>
+            <div class="theory-card">
+                <p>The Mystery of Ricken</p>
+                <a href="ricken-theory.html">Read More</a>
+            </div>
+            <div class="theory-card">
+                <p>Reghabi’s True Role</p>
+                <a href="reghabi-theory.html">Read More</a>
+            </div>
+        </div>
     </section>
     <footer class="dive-footer" id="footer">
         <div class="footer-glow"></div>
